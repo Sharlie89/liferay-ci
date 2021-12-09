@@ -1,0 +1,10 @@
+{
+	"create-jar": {
+		"output-dir": "dist",
+		"features": {
+			"js-extender": true,
+			"web-context": "/hola-mundo"
+		}
+	},
+	"dump-report": true
+}
