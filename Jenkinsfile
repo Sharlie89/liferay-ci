@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
+    agent {}
     // global env variables
     environment {
         EMAIL_RECIPIENTS = 'carlos.abarba@babel.es'
