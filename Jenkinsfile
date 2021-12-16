@@ -35,7 +35,7 @@ pipeline {
             steps{
                 dir('hola-mundo'){
                     sh '''
-                       npm build:liferay
+                       npm run build:liferay
                     '''
                 }
             }
