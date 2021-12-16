@@ -16,9 +16,11 @@ pipeline {
         }
         stage ('install modules'){
             steps{
-                sh '''
-                    npm install --verbose -d
-                '''
+                dir(hola-mundo){
+                    sh '''
+                        npm install --verbose -d
+                    '''
+                }
             }
         }
         stage('Build with unit testing') {
