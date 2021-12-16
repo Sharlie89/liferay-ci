@@ -30,7 +30,7 @@ pipeline {
                 }
             }
         }
-
+}
     post {
         // Always runs. And it runs before any of the other post conditions.
         always {
