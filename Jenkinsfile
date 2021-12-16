@@ -6,7 +6,11 @@ pipeline {
         EMAIL_RECIPIENTS = 'carlos.abarba@babel.es'
     }
     stages {
-
+        stage ('checkout'){
+          steps{
+            checkout scm
+          }
+        }
         stage ('install modules'){
             steps{
                 sh '''
