@@ -7,9 +7,16 @@ pipeline {
     }
     stages {
 
+        stage ('install modules'){
+            steps{
+                sh '''
+                    npm install --verbose -d
+                '''
+            }
+        }
         stage('Build with unit testing') {
             steps {
-                // Run the maven build
+                // Run npm install
                 script {
                     // Get the Maven tool.
                     // ** NOTE: This 'M3' Maven tool must be configured
