@@ -9,15 +9,13 @@ pipeline {
         stage ('checkout'){
           steps{
             checkout scm
-            sh '''
-                ls -la
-            '''
           }
         }
         stage ('install modules'){
             steps{
-                dir(hola-mundo){
+                dir('hola-mundo'){
                     sh '''
+                        ls -la
                         npm install --verbose -d
                     '''
                 }
