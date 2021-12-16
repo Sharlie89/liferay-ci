@@ -4,6 +4,7 @@ pipeline {
     // global env variables
     environment {
         EMAIL_RECIPIENTS = 'carlos.abarba@babel.es'
+        PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
     }
     stages {
         stage ('Checkout'){
@@ -30,6 +31,24 @@ pipeline {
                 }
             }
         }
+        stage ('LifeRay build'){
+            steps{
+                dir('hola-mundo'){
+                    sh '''
+                       npm build:liferay
+                    '''
+                }
+            }
+        }
+        stage ('LifeRay deploy'){
+            steps{
+                dir('hola-mundo'){
+                    sh '''
+                       npm run deploy:liferay
+                    '''
+                }
+            }
+        }
 }
     post {
         // Always runs. And it runs before any of the other post conditions.
@@ -37,7 +56,7 @@ pipeline {
             // Let's wipe out the workspace before we finish!
             deleteDir()
         }
-        success {
+/*        success {
             sendEmail("Successful");
         }
         unstable {
@@ -45,7 +64,7 @@ pipeline {
         }
         failure {
             sendEmail("Failed");
-        }
+        }*/
     }
 
 // The options directive is for configuration that applies to the whole job.
