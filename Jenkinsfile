@@ -9,6 +9,9 @@ pipeline {
         stage ('checkout'){
           steps{
             checkout scm
+            sh '''
+                ls -la
+            '''
           }
         }
         stage ('install modules'){
