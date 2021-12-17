@@ -16,7 +16,7 @@ pipeline {
             steps{
                 dir('hola-mundo'){
                     sh '''
-                        npm install -g --unsafe-perm=true --allow-root
+                        npm install
                     '''
                    /* npm install --verbose -d */
                 }
