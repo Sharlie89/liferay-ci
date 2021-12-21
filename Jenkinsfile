@@ -40,7 +40,15 @@ pipeline {
                 }
             }
         }
-        stage('Upload to Artifactory') {
+ stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "artifactory"
+                )
+            }
+        }
+    }
+/*        stage('Upload to Artifactory') {
            steps {
               script {
                  def server = Artifactory.server 'artifactory'
@@ -53,7 +61,7 @@ pipeline {
                  server.upload(uploadSpec)
                }
             }
-        }
+        } */
 }
     post {
         // Always runs. And it runs before any of the other post conditions.
