@@ -49,6 +49,7 @@ pipeline {
         }
         stage ('Publish build artifact') {
             steps {
+                sh ''' ls -l ${WORKSPACE} '''
                 rtUpload(
                     serverId: "artifactory",
                     spec: """{
