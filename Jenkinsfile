@@ -55,7 +55,7 @@ pipeline {
                     spec: """{
                             "files": [
                                     {
-                                        "pattern": "${WORKSPACE}/hola-mundo/*.gz",
+                                        "pattern": "${WORKSPACE}/hola-mundo/build.liferay/*.jar",
                                         "target": "libs-snapshot-local"
                                     }
                                 ]
