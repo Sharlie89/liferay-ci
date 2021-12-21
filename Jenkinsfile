@@ -40,13 +40,18 @@ pipeline {
                 }
             }
         }
-        stage ('LifeRay deploy'){
-            steps{
-                dir('hola-mundo'){
-                    sh '''
-                       npm run deploy:liferay
-                    '''
-                }
+        stage('Upload to Artifactory') {
+           steps {
+              script {
+                 def server = Artifactory.server 'artifactory'
+                 def uploadSpec = """{
+                    "files": [{
+                       "pattern": "test/",
+                       "target": "test/"
+                    }]
+                 }"""
+                 server.upload(uploadSpec)
+               }
             }
         }
 }
