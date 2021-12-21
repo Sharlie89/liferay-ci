@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage ('Angular build'){
+/*        stage ('Angular build'){
             steps{
                 dir('hola-mundo'){
                     sh '''
@@ -30,7 +30,7 @@ pipeline {
                     '''
                 }
             }
-        }
+        } */
         stage ('LifeRay build'){
             steps{
                 dir('hola-mundo'){
