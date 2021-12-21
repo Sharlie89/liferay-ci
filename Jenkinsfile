@@ -40,9 +40,16 @@ pipeline {
                 }
             }
         }
- stage ('Publish build info') {
+        stage ('Publish build info') {
             steps {
                 rtPublishBuildInfo (
+                    serverId: "artifactory"
+                )
+            }
+        }
+        stage ('Publish build artifact') {
+            steps {
+                rtUpload(
                     serverId: "artifactory"
                 )
             }
