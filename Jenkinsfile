@@ -49,13 +49,13 @@ pipeline {
         }
         stage ('Publish build artifact') {
             steps {
-                sh ''' ls -l ${WORKSPACE} '''
+                sh ''' ls -l ${WORKSPACE}/hola-mundo '''
                 rtUpload(
                     serverId: "artifactory",
                     spec: """{
                             "files": [
                                     {
-                                        "pattern": "${WORKSPACE}/*.tar.gz",
+                                        "pattern": "${WORKSPACE}/hola-mundo/*.gz",
                                         "target": "libs-snapshot-local"
                                     }
                                 ]
