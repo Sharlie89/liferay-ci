@@ -50,7 +50,7 @@ pipeline {
         stage ('Publish build artifact') {
             steps {
                 rtUpload(
-                    serverId: "artifactory"
+                    serverId: "artifactory",
                     spec: """{
                             "files": [
                                     {
