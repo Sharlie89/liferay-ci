@@ -51,6 +51,14 @@ pipeline {
             steps {
                 rtUpload(
                     serverId: "artifactory"
+                    spec: """{
+                            "files": [
+                                    {
+                                        "pattern": "${WORKSPACE}/*.tar.gz",
+                                        "target": "libs-snapshot-local"
+                                    }
+                                ]
+                            }"""
                 )
             }
         }
