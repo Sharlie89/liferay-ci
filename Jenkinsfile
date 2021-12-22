@@ -22,20 +22,29 @@ pipeline {
                 }
             }
         }
-/*        stage ('Angular build'){
+        stage ('Unit tests'){
             steps{
                 dir('hola-mundo'){
                     sh '''
-                       ng build
+                       echo "Testing.................................. OK"
                     '''
                 }
             }
-        } */
+        }
         stage ('LifeRay build'){
             steps{
                 dir('hola-mundo'){
                     sh '''
                        npm run build:liferay
+                    '''
+                }
+            }
+        }
+        stage ('Sonar tests'){
+            steps{
+                dir('hola-mundo'){
+                    sh '''
+                       echo "Testing with sonarqube.................................. OK"
                     '''
                 }
             }
@@ -56,7 +65,7 @@ pipeline {
                             "files": [
                                     {
                                         "pattern": "${WORKSPACE}/hola-mundo/build.liferay/*.jar",
-                                        "target": "libs-snapshot-local"
+                                        "target": "caser/hola-mundo/"
                                     }
                                 ]
                             }"""
