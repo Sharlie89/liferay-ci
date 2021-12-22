@@ -79,6 +79,11 @@ pipeline {
                 )
             }
         }
+        stage ('Deploy in LifeRay') {
+            steps {
+                sh ''' scp -o StrictHostKeyChecking=no ${WORKSPACE}/hola-mundo/build.liferay/*.jar root@192.168.1.24:/opt/liferay/deploy/ '''
+            }
+        }
 }
     post {
         // Always runs. And it runs before any of the other post conditions.
