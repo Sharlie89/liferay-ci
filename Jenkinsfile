@@ -81,7 +81,10 @@ pipeline {
         }
         stage ('Deploy in LifeRay') {
             steps {
-                sh ''' scp -o StrictHostKeyChecking=no ${WORKSPACE}/hola-mundo/build.liferay/*.jar root@192.168.1.24:/opt/liferay/deploy/ '''
+            withCredentials([sshUserPrivateKey(credentialsId: "sshkey", keyFileVariable: 'my_private_key_file')]) {
+                        sh "scp -o StrictHostKeyChecking=no ${WORKSPACE}/hola-mundo/build.liferay/*.jar root@192.168.1.24:/opt/liferay/deploy/"
+                    }
+
             }
         }
 }
