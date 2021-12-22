@@ -58,34 +58,19 @@ pipeline {
         }
         stage ('Publish build artifact') {
             steps {
-                sh ''' ls -l ${WORKSPACE}/hola-mundo '''
                 rtUpload(
                     serverId: "artifactory",
                     spec: """{
                             "files": [
                                     {
                                         "pattern": "${WORKSPACE}/hola-mundo/build.liferay/*.jar",
-                                        "target": "caser/hola-mundo/"
+                                        "target": "caser/"
                                     }
                                 ]
                             }"""
                 )
             }
         }
-/*        stage('Upload to Artifactory') {
-           steps {
-              script {
-                 def server = Artifactory.server 'artifactory'
-                 def uploadSpec = """{
-                    "files": [{
-                       "pattern": "test/",
-                       "target": "test/"
-                    }]
-                 }"""
-                 server.upload(uploadSpec)
-               }
-            }
-        } */
 }
     post {
         // Always runs. And it runs before any of the other post conditions.
