@@ -22,15 +22,6 @@ pipeline {
                 }
             }
         }
-        stage ('Angular build'){
-            steps{
-                dir('hola-mundo'){
-                    sh '''
-                       ng build
-                    '''
-                }
-            }
-        }
         stage ('LifeRay build'){
             steps{
                 dir('hola-mundo'){
