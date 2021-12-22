@@ -75,7 +75,7 @@ pipeline {
             steps {
                 rtDownload (
                     serverId: "artifactory",
-                    specPath: 'caser/hola-mundo-0.0.0.jar'
+                    target: 'caser/hola-mundo-0.0.0.jar'
                 )
             }
         }
