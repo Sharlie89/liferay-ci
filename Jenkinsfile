@@ -79,14 +79,13 @@ pipeline {
                 )
             }
         }
-        stage ('Deploy in LifeRay') {
+/*        stage ('Deploy in LifeRay') {
             steps {
             withCredentials([sshUserPrivateKey(credentialsId: "sshuser", keyFileVariable: 'my_private_key_file')]) {
                         sh "scp -o StrictHostKeyChecking=no ${WORKSPACE}/hola-mundo/build.liferay/*.jar root@192.168.1.24:/opt/liferay/deploy/"
                     }
-
             }
-        }
+        } */
 }
     post {
         // Always runs. And it runs before any of the other post conditions.
