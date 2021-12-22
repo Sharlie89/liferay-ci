@@ -71,6 +71,14 @@ pipeline {
                 )
             }
         }
+        stage ('Artifact download') {
+            steps {
+                rtDownload (
+                    serverId: "artifactory",
+                    specPath: 'caser/hola-mundo-0.0.0.jar'
+                )
+            }
+        }
 }
     post {
         // Always runs. And it runs before any of the other post conditions.
